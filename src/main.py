@@ -18,11 +18,14 @@ def valorar_partida(puntuacion: int) -> str:
 def main():
     aciertos: int = int(input("Introduce la cantidad de aciertos: "))
     errores: int = int(input("Introduce la cantidad de errores: "))
-    resultado: tuple = calcular_resultados(aciertos, errores)
-    print(f"Preguntas respondidas: {resultado[0]}")
-    print(f"Puntuación: {resultado[1]}")
-    valoracion: str = valorar_partida(resultado[1])
-    print(f"Valoración: {valoracion}")
+    if (aciertos < 0) or (errores < 0):
+        print("Error: Introduce números positivos")
+    else:
+        resultado: tuple = calcular_resultados(aciertos, errores)
+        print(f"Preguntas respondidas: {resultado[0]}")
+        print(f"Puntuación: {resultado[1]}")
+        valoracion: str = valorar_partida(resultado[1])
+        print(f"Valoración: {valoracion}")
 
 if __name__ == "__main__":
     main()
